@@ -1,10 +1,3 @@
-//
-//  BuilderPattern.swift
-//
-//
-//  Created by Gustavo Araujo Santos on 12/10/24.
-//
-
 struct MyObject {
     private(set) var name: String = String()
     private(set) var description: String = String()

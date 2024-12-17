@@ -1,3 +1,5 @@
+import UIKit
+
 /// Abstract factory for UI components
 protocol UIFactory {
     func createButton() -> UIButton
@@ -46,9 +48,9 @@ struct ClientCode {
 }
 
 #if iOS
-    let clientCode = ClientCode(factoryType: iOSFactory())
+    @MainActor let clientCode = ClientCode(factoryType: iOSFactory())
 #elseif MacOS
-    let clientCode = ClientCode(factoryType: MacFactory())
+    @MainActor let clientCode = ClientCode(factoryType: MacFactory())
 #else
-    let clientCode = ClientCode(factoryType: iPadFactory())
+    @MainActor let clientCode = ClientCode(factoryType: iPadFactory())
 #endif

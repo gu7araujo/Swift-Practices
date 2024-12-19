@@ -29,7 +29,7 @@ extension Frog: Jumping {
 }
 
 /// before
-var animals: [Jumping] = [Dog(), Cat()]
+@MainActor var animals: [Jumping] = [Dog(), Cat()]
 
 func jumpAll(animals: [Jumping], frog: Frog? = nil) {
     for animal in animals {

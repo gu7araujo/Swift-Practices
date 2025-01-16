@@ -7,8 +7,16 @@ protocol ItemStoring {
 
 struct NameDatabase: ItemStoring {
     var items = [String]()
+    
+    mutating func add(item: String) {
+        //
+    }
 }
 
 struct ValueDatabase: ItemStoring {
     var items = [Double]()
+    
+    mutating func add(item: Double) {
+        //
+    }
 }

@@ -40,7 +40,12 @@ class ItalicDecorator: TextDecorator {
 }
 
 // Usage
-@MainActor let plainText = PlainText()
-@MainActor let formattedText = BoldDecorator(ItalicDecorator(plainText))
-print(formattedText.content())
 
+class Client3 {
+    init() {
+        let plainText = PlainText()
+        let formattedText = BoldDecorator(ItalicDecorator(plainText))
+        
+        print(formattedText.content())
+    }
+}

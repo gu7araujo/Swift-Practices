@@ -1,9 +1,9 @@
-protocol Subsystem1 {
-    func doSomething1()
+class Subsystem1 {
+    func doSomething1() { }
 }
 
-protocol Subsystem2 {
-    func doSomething2()
+class Subsystem2 {
+    func doSomething2() { }
 }
 
 class Facade {
@@ -21,6 +21,12 @@ class Facade {
     }
 }
 
-let facade = Facade(subsystem1: Subsystem1Impl(), subsystem2: Subsystem2Impl())
-
-facade.doSomething()
+class Client2 {
+    init() {
+        let subsystem1Impl = Subsystem1()
+        let subsystem2Impl = Subsystem2()
+        
+        let facade = Facade(subsystem1: subsystem1Impl, subsystem2: subsystem2Impl)
+        facade.doSomething()
+    }
+}

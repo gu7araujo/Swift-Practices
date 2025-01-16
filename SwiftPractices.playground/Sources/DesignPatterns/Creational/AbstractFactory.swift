@@ -47,10 +47,15 @@ struct ClientCode {
     }
 }
 
-#if iOS
-    @MainActor let clientCode = ClientCode(factoryType: iOSFactory())
-#elseif MacOS
-    @MainActor let clientCode = ClientCode(factoryType: MacFactory())
-#else
-    @MainActor let clientCode = ClientCode(factoryType: iPadFactory())
-#endif
+
+class client9 {
+    init() {
+    #if iOS
+        let clientCode = ClientCode(factoryType: iOSFactory())
+    #elseif MacOS
+        let clientCode = ClientCode(factoryType: MacFactory())
+    #else
+         let clientCode = ClientCode(factoryType: iPadFactory())
+    #endif
+    }
+}

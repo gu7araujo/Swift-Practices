@@ -29,23 +29,27 @@ extension Frog: Jumping {
 }
 
 /// before
-@MainActor var animals: [Jumping] = [Dog(), Cat()]
+class Client5 {
+    var animals: [Jumping] = [Dog(), Cat()]
 
-func jumpAll(animals: [Jumping], frog: Frog? = nil) {
-    for animal in animals {
-        animal.jump()
-    }
-    if let frog = frog {
-        frog.leap()
+    func jumpAll(animals: [Jumping], frog: Frog? = nil) {
+        for animal in animals {
+            animal.jump()
+        }
+        if let frog = frog {
+            frog.leap()
+        }
     }
 }
 
 /// after
-animals = [Dog(), Cat(), Frog()]
-
-func jumpAll(animals: [Jumping]) {
-    for animal in animals {
-        animal.jump()
+class Client6 {
+    var animals: [Jumping] = [Dog(), Cat(), Frog()]
+    
+    func jumpAll(animals: [Jumping]) {
+        for animal in animals {
+            animal.jump()
+        }
     }
 }
 

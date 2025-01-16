@@ -1,13 +1,15 @@
-protocol Iterator {
-    func next() -> Element?
-    func hasNext() -> Bool
+struct Song {
+    var title: String
 }
 
+protocol Iterator {
+    func next() -> Song?
+    func hasNext() -> Bool
+}
 
 protocol Aggregate {
     func createIterator() -> Iterator
 }
-
 
 class SongIterator: Iterator {
     private var playlist: Playlist
@@ -29,7 +31,6 @@ class SongIterator: Iterator {
     }
 }
 
-
 class Playlist: Aggregate {
     var songs: [Song] = []
     func createIterator() -> Iterator {
@@ -37,13 +38,19 @@ class Playlist: Aggregate {
     }
 }
 
-
-let playlist = Playlist()
-playlist.songs.append(Song(title: "Song 1"))
-playlist.songs.append(Song(title: "Song 2"))
-let iterator = playlist.createIterator()
-while iterator.hasNext() {
-    if let song = iterator.next() {
-        print("Playing: \(song.title)")
+class client11 {
+    let playlist = Playlist()
+    
+    init() {
+        playlist.songs.append(Song(title: "Song 1"))
+        playlist.songs.append(Song(title: "Song 2"))
+        
+        let iterator = playlist.createIterator()
+        
+        while iterator.hasNext() {
+            if let song = iterator.next() {
+                print("Playing: \(song.title)")
+            }
+        }
     }
 }

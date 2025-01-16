@@ -28,11 +28,16 @@ struct CapitalizedStrategy: LoggerStrategy {
     }
 }
 
-var logger = Logger(strategy: CapitalizedStrategy())
-logger.log("my first strategy")
+class client10 {
+    var logger = Logger(strategy: CapitalizedStrategy())
+    
+    init() {
+        logger.log("my first strategy")
 
-logger = Logger(strategy: UppercaseStrategy())
-logger.log("my first strategy")
+        logger = Logger(strategy: UppercaseStratgy())
+        logger.log("my first strategy")
 
-logger = Logger(strategy: LowercaseStrategy())
-logger.log("my first strategy")
+        logger = Logger(strategy: LowercaseStrategy())
+        logger.log("my first strategy")
+    }
+}

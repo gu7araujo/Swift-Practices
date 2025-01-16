@@ -1,3 +1,5 @@
+import UIKit
+
 typealias Dollar = Double
 
 struct Receipt {

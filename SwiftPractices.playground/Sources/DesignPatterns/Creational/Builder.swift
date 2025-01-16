@@ -1,4 +1,4 @@
-struct MyObject {
+struct MyNiceObject2 {
     private(set) var name: String = String()
     private(set) var description: String = String()
     private(set) var value: Int = Int()
@@ -8,14 +8,14 @@ struct MyObject {
     }
 }
 
-extension MyObject {
+extension MyNiceObject2 {
     
     public static func builder() -> Builder {
         Builder()
     }
     
     final class Builder {
-        private var model = MyObject()
+        private var model = MyNiceObject2()
         
         func with(name: String) -> Builder {
             model.name = name
@@ -32,14 +32,16 @@ extension MyObject {
             return self
         }
         
-        func build() -> MyObject {
+        func build() -> MyNiceObject2 {
             model
         }
     }
 }
 
-let object = MyObject.builder()
-    .with(name: "Gustavo")
-    .with(description: "Hello")
-    .with(value: 1)
-    .build()
+class client8 {
+    let object = MyNiceObject2.builder()
+        .with(name: "Gustavo")
+        .with(description: "Hello")
+        .with(value: 1)
+        .build()
+}

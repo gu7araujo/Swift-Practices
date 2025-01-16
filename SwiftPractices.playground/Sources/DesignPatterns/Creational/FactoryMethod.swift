@@ -1,10 +1,14 @@
-struct MyObject {
+struct MyNiceObjectT {
     let text: String
 }
 
-func myObjectFactoryMethod() -> MyObject {
-    MyObject(text: "test")
+class Client7 {
+    init() {
+        let instanceDirect = MyNiceObjectT(text: "test") // direct constructor call
+        let instanceFromFactoryMethod = myObjectFactoryMethod() // instead of using a direct constructor call
+    }
+    
+    func myObjectFactoryMethod() -> MyNiceObjectT {
+        MyNiceObjectT(text: "test")
+    }
 }
-
-let instanceDirect = MyObject(text: "test") // direct constructor call
-let instanceFromFactoryMethod = myObjectFactoryMethod() // instead of using a direct constructor call

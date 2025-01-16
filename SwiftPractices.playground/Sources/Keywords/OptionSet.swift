@@ -6,26 +6,30 @@ struct MessageType : OptionSet {
     static let video = MessageType(rawValue: 1 << 1)
     static let audio = MessageType(rawValue: 1 << 2)
     static let file = MessageType(rawValue: 1 << 3)
-    static let mms : MessageType = [.image, .text]
+    static let mms: MessageType = [.image, .text]
 }
 
-let messageReceived : MessageType = [.audio, .text]
-let videoPlusTextMessage : MessageType = [.video, .text]
+class Client {
+    let messageReceived: MessageType = [.audio, .text]
+    let videoPlusTextMessage: MessageType = [.video, .text]
+    
+    init() {
+        print(videoPlusTextMessage.contains(.video)) // true
+        print(videoPlusTextMessage.contains(.image)) // false
+        
+        // Combining
 
-videoPlusTextMessage.contains(.video) // true
-videoPlusTextMessage.contains(.image) // false
+        let textMessage : MessageType = [.text]
+        let imageMessage : MessageType = [.image]
 
-// Combining
+        var mmsMessage = textMessage.union(imageMessage)
+        
+        // Comparing
 
-let textMessage : MessageType = [.text]
-let imageMessage : MessageType = [.image]
+        mmsMessage = textMessage.union(imageMessage)
 
-let mmsMessage = textMessage.union(imageMessage)
+        let common = mmsMessage.intersection(textMessage)
 
-// Comparing
-
-var mmsMessage = textMessage.union(imageMessage)
-
-let common = mmsMessage.intersection(textMessage)
-
-let subtracted = mmsMessage.subtracting(textMessage)
+        let subtracted = mmsMessage.subtracting(textMessage)
+    }
+}

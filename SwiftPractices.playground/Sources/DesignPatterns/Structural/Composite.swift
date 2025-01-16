@@ -49,12 +49,16 @@ class Department: Payee {
     }
 }
 
-@MainActor let joan = Employee(name: "Joan")
-@MainActor let tom = Employee(name: "Tom")
-@MainActor let cleo = Employee(name: "Cleo")
-@MainActor let alex = Employee(name: "Alex")
+class Client4 {
+    init() {
+        let joan = Employee(name: "Joan")
+        let tom = Employee(name: "Tom")
+        let cleo = Employee(name: "Cleo")
+        let alex = Employee(name: "Alex")
 
-@MainActor let graphicDesignDepartment = Department(name: "Graphic Design", subunits: [cleo, alex])
-@MainActor let marketingDepartment = Department(name: "Marketing", subunits: [joan, tom, graphicDesignDepartment])
+        let graphicDesignDepartment = Department(name: "Graphic Design", subunits: [cleo, alex])
+        let marketingDepartment = Department(name: "Marketing", subunits: [joan, tom, graphicDesignDepartment])
 
-marketingDepartment.receive(bonus: 1000)
+        marketingDepartment.receive(bonus: 1000)
+    }
+}

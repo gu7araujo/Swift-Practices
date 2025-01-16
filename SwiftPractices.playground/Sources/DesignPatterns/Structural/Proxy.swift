@@ -3,7 +3,7 @@ protocol ExampleProtocol {
 }
 
 struct DatabaseService: ExampleProtocol {
-    func performDestructiveAction() {
+    func performDesctructiveAction() {
         // Delete all tables 😈
     }
 }
@@ -12,8 +12,8 @@ struct DatabaseServiceProxy: ExampleProtocol {
     let isAdmin: Bool
     private let service = DatabaseService()
     
-    func performDestructiveAction() {
+    func performDesctructiveAction() {
         guard isAdmin else { return }
-        service.performDestructiveAction()
+        service.performDesctructiveAction()
     }
 }
